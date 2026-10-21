@@ -65,6 +65,11 @@ ul{margin:0;padding-left:18px;color:#3d3657;font-size:14px}
 .btn.primary{background:var(--pink);color:#fff}
 .btn.ghost{background:var(--win)}
 .btn:active{transform:translate(3px,3px);box-shadow:none}
+.join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:-10px 0 28px;padding:16px 20px;border:3px solid var(--ink);border-radius:14px;background:var(--pink);color:#fff;box-shadow:6px 6px 0 var(--ink)}
+.join p{margin:0;font-weight:700;font-size:17px;min-width:0}
+.join a{font:700 15px var(--body);text-decoration:none;color:var(--ink);background:var(--yellow);padding:10px 16px;border-radius:10px;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.lock{font:500 12px var(--mono);color:#5a5277}
+.lock a{color:var(--pink);font-weight:700}
 .note{margin-top:36px;padding:16px 18px;border:3px solid var(--ink);border-radius:12px;background:var(--yellow);box-shadow:5px 5px 0 var(--ink);font-size:14px;font-weight:500}
 @media (prefers-reduced-motion:no-preference){.btn,.chip{transition:transform .1s,box-shadow .1s}
   .btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}}
@@ -79,6 +84,8 @@ ul{margin:0;padding-left:18px;color:#3d3657;font-size:14px}
     <h1>Niche Please Tools</h1>
     <p>All 15 apps, Chrome extensions and reports I've built for Merch on Demand, in one place. Watch the tutorial, then click <b>Get it in Skool</b> to download the latest version from the Tools Vault.</p>
   </div></header>
+
+  <div class="join"><p>🔒 Downloads are free for Niche Please members on Skool.</p><a href="https://www.skool.com/niche-please-6329/about" target="_blank" rel="noopener">Join Niche Please →</a></div>
 
   <div class="filters" role="group" aria-label="Filter tools">
     <button class="chip" id="f-all" data-f="all" aria-pressed="true">All</button>
@@ -124,7 +131,7 @@ function render(f){
       <p class="desc">${t.desc}</p>
       <div class="meta">${t.note}</div>
       <div class="actions"><a class="btn primary" href="${t.get}" target="_blank" rel="noopener">${t.getLabel||"Get it in Skool"}</a>
-      ${t.video?`<a class="btn ghost" href="${t.video}" target="_blank" rel="noopener">▶ Watch tutorial</a>`:""}</div></div>`;
+      ${t.video?`<a class="btn ghost" href="${t.video}" target="_blank" rel="noopener">▶ Watch tutorial</a>`:""}</div>${t.getLabel?"":`<div class="lock">🔒 Members only. Not in yet? <a href="https://www.skool.com/niche-please-6329/about" target="_blank" rel="noopener">Join to download</a></div>`}</div>`;
     grid.appendChild(c);
   });
 }
